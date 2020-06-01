@@ -1,0 +1,6 @@
+.DS_Store
+# environment
+env/*/*
+!env/*/README.md
+!env/*/example
+!env/*/template*
