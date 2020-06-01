@@ -13,7 +13,7 @@ Please check the content of the link because the setting contents differ for eac
 - [AWS](env/aws/README.md)  
 A document that describes how to configure the environment of [AWS Provider](https://www.terraform.io/docs/providers/aws/index.html).
 - [GCP](env/gcp/README.md)  
-A document that describes how to configure the environment of A document that describes how to configure the environment of [Google Cloud Platform Provider](https://www.terraform.io/docs/providers/google/index.html).
+A document that describes how to configure the environment of [Google Cloud Platform Provider](https://www.terraform.io/docs/providers/google/index.html).
 - [Azure](env/azure/README.md)  
 A document that describes how to configure the environment of [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html).
 - [Github](env/github/README.md)  
