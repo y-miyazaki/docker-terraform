@@ -11,6 +11,11 @@ ARG WORKDIR=/workspace
 ARG CLOUD_COMMANDS_VERSION
 
 #--------------------------------------------------------------
+# ENV
+#--------------------------------------------------------------
+ENV CLOUDSDK_PYTHON=python3
+
+#--------------------------------------------------------------
 # workdir
 #--------------------------------------------------------------
 RUN mkdir -p ${WORKDIR}
@@ -20,7 +25,7 @@ WORKDIR  ${WORKDIR}
 # Install dependent packages
 #--------------------------------------------------------------
 RUN apk update && \
-    apk add --no-cache make bash tar curl zip openssl sudo py-pip && \
+    apk add --no-cache make bash tar curl zip openssl sudo python3 && \
     # setting commands
     git clone --depth 1 -b ${CLOUD_COMMANDS_VERSION} https://github.com/y-miyazaki/cloud-commands.git && \
     cloud-commands/install.sh && \
