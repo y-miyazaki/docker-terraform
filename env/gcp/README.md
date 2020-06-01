@@ -76,7 +76,7 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
   },
   "runArgs": [
     "-v",
-    "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
+    "${env:HOME}/workspace/terraform-project:/workspace",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",
@@ -165,7 +165,7 @@ BUCKET=xxxxxxxxxxxx
 ### fix env/{environment}/.key.
 
 You need to fix .key file.
-This file is Service Account Key json. Please check this following page.
+This file is Service Account Key json. Please check this following page.  
 https://cloud.google.com/iam/docs/creating-managing-service-account-keys
 
 Here is example.

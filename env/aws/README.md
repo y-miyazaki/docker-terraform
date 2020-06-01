@@ -78,7 +78,7 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
   },
   "runArgs": [
     "-v",
-    "${env:HOME}/workspace:/workspace",
+    "${env:HOME}/workspace/terraform-project:/workspace",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",
@@ -288,6 +288,7 @@ Terraform v0.12.25
 
 ### aws version
 
+```
 bash-5.0# aws --v
 aws-cli/2.0.9 Python/3.7.3 Linux/4.19.76-linuxkit botocore/2.0.0dev13
 ```

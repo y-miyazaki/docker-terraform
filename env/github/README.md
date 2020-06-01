@@ -74,7 +74,7 @@ $ cat env/github/{your environment}/.devcontainer/devcontainer.json
   },
   "runArgs": [
     "-v",
-    "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
+    "${env:HOME}/workspace/terraform-project:/workspace",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",
