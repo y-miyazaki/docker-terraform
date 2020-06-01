@@ -1,4 +1,4 @@
-# VS Code Remote Development for Terraform azure
+# VS Code Remote Development for Terraform Providers
 
 ## Overview
 
