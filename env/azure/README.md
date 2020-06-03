@@ -23,7 +23,7 @@ $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
-    "mauve.terraform",
+    "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
     "eamodio.gitlens",
     "editorconfig.editorconfig",
@@ -60,7 +60,7 @@ $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
-    "mauve.terraform",
+    "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
     "eamodio.gitlens",
     "editorconfig.editorconfig",

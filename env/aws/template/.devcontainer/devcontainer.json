@@ -1,29 +1,29 @@
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
-  "settings": {
-    "terraform.lintPath": "/usr/local/tflint/bin/tflint",
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "extensions": [
-    "mauve.terraform",
-    "coenraads.bracket-pair-colorizer-2",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "ibm.output-colorizer",
-    "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
-  ],
-  "build": {
-    "args": {
-      "WORKDIR": "/workspace"
-    }
-  },
-  "runArgs": [
-    "-v",
-    "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
-    "--env-file=.env"
-  ],
-  "workspaceFolder": "/workspace",
-  "overrideCommand": false
+    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
+    "settings": {
+        "terraform.lintPath": "/usr/local/tflint/bin/tflint",
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "hashicorp.terraform",
+        "coenraads.bracket-pair-colorizer-2",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ibm.output-colorizer",
+        "streetsidesoftware.code-spell-checker",
+        "vscode-icons-team.vscode-icons",
+    ],
+    "build": {
+        "args": {
+            "WORKDIR": "/workspace"
+        }
+    },
+    "runArgs": [
+        "-v",
+        "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
+        "--env-file=.env"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false
 }

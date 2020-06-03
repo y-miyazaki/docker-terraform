@@ -23,9 +23,10 @@ $ cat env/github/{your environment}/.devcontainer/devcontainer.json
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
-    "mauve.terraform",
+    "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
     "eamodio.gitlens",
+    "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "ibm.output-colorizer",
     "streetsidesoftware.code-spell-checker",
@@ -59,7 +60,7 @@ $ cat env/github/{your environment}/.devcontainer/devcontainer.json
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
-    "mauve.terraform",
+    "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
