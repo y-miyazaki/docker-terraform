@@ -22,9 +22,7 @@ WORKDIR  ${WORKDIR}
 RUN apk update && \
     apk add --no-cache make bash tar curl zip openssl sudo py-pip && \
     # setting commands
-    git clone --depth 1 -b ${CLOUD_COMMANDS_VERSION} https://github.com/y-miyazaki/cloud-commands.git && \
-    cloud-commands/install.sh && \
-    rm -rf cloud-command && \
+    curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION} && \
     # Install az command
     apk add --no-cache python3-dev && \
     apk add --no-cache --virtual=build gcc libffi-dev musl-dev openssl-dev  && \
