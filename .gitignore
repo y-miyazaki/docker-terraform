@@ -1,4 +1,6 @@
 .DS_Store
+.vscode
+.editorconfig
 # environment
 env/*/*
 !env/*/README.md
