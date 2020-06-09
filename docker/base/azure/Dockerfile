@@ -20,7 +20,7 @@ WORKDIR  ${WORKDIR}
 # Install dependent packages
 #--------------------------------------------------------------
 RUN apk update && \
-    apk add --no-cache make bash tar curl zip openssl sudo py-pip && \
+    apk add --no-cache make bash tar curl zip openssl jq sudo py-pip && \
     # setting commands
     curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION} && \
     # Install az command
