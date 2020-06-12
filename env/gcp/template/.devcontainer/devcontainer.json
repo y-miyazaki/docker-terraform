@@ -21,6 +21,8 @@
   "runArgs": [
     "-v",
     "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
+    "-v",
+    "##YOUR_KEY_FILE_DIRECTORY##:/env/",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",

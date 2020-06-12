@@ -40,6 +40,8 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
   "runArgs": [
     "-v",
     "${env:HOME}/##YOUR_WORKSPACE##:/workspace",
+    "-v",
+    "##YOUR_KEY_FILE_DIRECTORY##:/env/",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",
@@ -49,9 +51,10 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 
 ### change devcontainer.json
 
-"##YOUR_WORKSPACE##" fix in devcontainer.json.
+"##YOUR_WORKSPACE##" and ##YOUR_KEY_FILE_DIRECTORY## fix in devcontainer.json.
 
-1. ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
+* ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
+* ##YOUR_KEY_FILE_DIRECTORY## is your .key file directory for volume mount. If you want to absolute directory.
 
 ```json
 {
@@ -77,6 +80,8 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
   "runArgs": [
     "-v",
     "${env:HOME}/workspace/terraform-project:/workspace",
+    "-v",
+    "${env:HOME}/workspace/docker-terraform/env/gcp/production/:/env/",
     "--env-file=.env"
   ],
   "workspaceFolder": "/workspace",
@@ -114,7 +119,7 @@ REGION={gcp main region}
 ZONE={gcp main region zone}
 
 # GOOGLE_CLOUD_KEYFILE_JSON uses gcloud auth command and init provider.
-GOOGLE_CLOUD_KEYFILE_JSON=/env/{environment}/.key
+GOOGLE_CLOUD_KEYFILE_JSON=/env/.key
 
 #---------------------------------------------------------
 # Store Terraform state in GCS
@@ -152,7 +157,7 @@ REGION=us-west-1
 ZONE=us-west-1
 
 # GOOGLE_CLOUD_KEYFILE_JSON uses gcloud auth command and init provider.
-GOOGLE_CLOUD_KEYFILE_JSON=/env/development/.key
+GOOGLE_CLOUD_KEYFILE_JSON=/env/.key
 
 #---------------------------------------------------------
 # Store Terraform state in GCS
