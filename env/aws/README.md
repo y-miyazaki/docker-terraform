@@ -102,6 +102,8 @@ ENV={development|staging|production..etc}
 # When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
 IS_GENERATE_PROVIDER={0|1}
 
+# terraform cache directory
+TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # aws setting
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
@@ -140,6 +142,8 @@ ENV=production
 # When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
 IS_GENERATE_PROVIDER=1
 
+# terraform cache directory
+TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # aws setting
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
