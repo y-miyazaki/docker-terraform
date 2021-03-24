@@ -106,7 +106,7 @@ ENV={development|staging|production..etc}
 IS_GENERATE_PROVIDER={0|1}
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # Google Cloud Platform Provider
 # https://www.terraform.io/docs/providers/google/index.html
