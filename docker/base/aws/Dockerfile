@@ -26,7 +26,7 @@ RUN apk update && \
     # fix sudo: setrlimit(RLIMIT_CORE): Operation not permitted
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
     # Install pre-commit
-    pip3 install pre-commit && \
+    pip3 install pre-commit --ignore-installed distlib && \
     # setting commands
     curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION} && \
     # tflint
