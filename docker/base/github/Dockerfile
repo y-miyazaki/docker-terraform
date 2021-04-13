@@ -23,8 +23,10 @@ RUN apk update && \
     apk add --no-cache make bash tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
     # fix sudo: setrlimit(RLIMIT_CORE): Operation not permitted
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
+    # tflint
+    curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # Install pre-commit
-    pip3 install pre-commit && \
+    pip3 install pre-commit --ignore-installed distlib && \
     # setting commands
     curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION}
 

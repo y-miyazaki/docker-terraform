@@ -9,7 +9,6 @@ FROM hashicorp/terraform:${TERRAFORM_VERSION}
 #--------------------------------------------------------------
 ARG WORKDIR=/workspace
 ARG CLOUD_COMMANDS_VERSION
-ARG TFLINT_VERSION=0.15.4
 ARG GLIBC_VER=2.31-r0
 
 #--------------------------------------------------------------
@@ -27,15 +26,10 @@ RUN apk update && \
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
     # Install pre-commit
     pip3 install pre-commit --ignore-installed distlib && \
+    # tflint
+    curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # setting commands
     curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION} && \
-    # tflint
-    wget https://github.com/wata727/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip && \
-    unzip tflint_linux_amd64.zip && \
-    mkdir -p /usr/local/tflint/bin && \
-    install tflint /usr/local/tflint/bin && \
-    rm -f tflint_linux_amd64.zip tflint && \
-    echo "PATH=/usr/local/tflint/bin:$PATH" >> $HOME/.bashrc && \
     # install glibc compatibility for alpine(need to add it for AWS CLI)
     apk --no-cache add binutils && \
     curl -sL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub && \
