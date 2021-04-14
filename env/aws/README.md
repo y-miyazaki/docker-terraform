@@ -20,7 +20,7 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
   "settings": {
-    "terraform.lintPath": "/usr/local/tflint/bin/tflint",
+    "terraform.lintPath": "/usr/local/bin/tflint",
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
@@ -58,7 +58,7 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
   "settings": {
-    "terraform.lintPath": "/usr/local/tflint/bin/tflint",
+    "terraform.lintPath": "/usr/local/bin/tflint",
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [
