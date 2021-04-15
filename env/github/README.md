@@ -19,9 +19,6 @@ $ cp -rp env/github/template env/github/{your environment}
 $ cat env/github/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-github:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -56,9 +53,6 @@ $ cat env/github/{your environment}/.devcontainer/devcontainer.json
 ```json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-github:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",

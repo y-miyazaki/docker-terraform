@@ -1,9 +1,5 @@
 {
     "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
-    "settings": {
-        "terraform.lintPath": "/usr/local/bin/tflint",
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
     "extensions": [
         "hashicorp.terraform",
         "coenraads.bracket-pair-colorizer-2",

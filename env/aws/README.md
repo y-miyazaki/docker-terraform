@@ -19,10 +19,6 @@ $ cp -rp env/aws/template env/aws/{your environment}
 $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
-  "settings": {
-    "terraform.lintPath": "/usr/local/bin/tflint",
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -57,10 +53,6 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 ```json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
-  "settings": {
-    "terraform.lintPath": "/usr/local/bin/tflint",
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",

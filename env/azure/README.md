@@ -19,9 +19,6 @@ $ cp -rp env/azure/template env/azure/{your environment}
 $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-azure:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -56,9 +53,6 @@ $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
 ```json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-azure:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",

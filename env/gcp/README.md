@@ -19,9 +19,6 @@ $ cp -rp env/gcp/template env/gcp/{your environment}
 $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -59,9 +56,6 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 ```json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",

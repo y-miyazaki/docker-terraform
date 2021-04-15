@@ -1,8 +1,5 @@
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
