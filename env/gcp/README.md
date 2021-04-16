@@ -19,6 +19,9 @@ $ cp -rp env/gcp/template env/gcp/{your environment}
 $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -50,36 +53,36 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 
 "##YOUR_WORKSPACE##" and ##YOUR_KEY_FILE_DIRECTORY## fix in devcontainer.json.
 
-* ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
-* ##YOUR_KEY_FILE_DIRECTORY## is your .key file directory for volume mount. If you want to absolute directory.
+-   ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
+-   ##YOUR_KEY_FILE_DIRECTORY## is your .key file directory for volume mount. If you want to absolute directory.
 
 ```json
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
-  "extensions": [
-    "hashicorp.terraform",
-    "coenraads.bracket-pair-colorizer-2",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "ibm.output-colorizer",
-    "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
-  ],
-  "build": {
-    "args": {
-      "WORKDIR": "/workspace"
-    }
-  },
-  "runArgs": [
-    "-v",
-    "${env:HOME}/workspace/terraform-project:/workspace",
-    "-v",
-    "${env:HOME}/workspace/docker-terraform/env/gcp/production/:/env/",
-    "--env-file=.env"
-  ],
-  "workspaceFolder": "/workspace",
-  "overrideCommand": false
+    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
+    "extensions": [
+        "hashicorp.terraform",
+        "coenraads.bracket-pair-colorizer-2",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ibm.output-colorizer",
+        "streetsidesoftware.code-spell-checker",
+        "vscode-icons-team.vscode-icons"
+    ],
+    "build": {
+        "args": {
+            "WORKDIR": "/workspace"
+        }
+    },
+    "runArgs": [
+        "-v",
+        "${env:HOME}/workspace/terraform-project:/workspace",
+        "-v",
+        "${env:HOME}/workspace/docker-terraform/env/gcp/production/:/env/",
+        "--env-file=.env"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false
 }
 ```
 
@@ -206,20 +209,20 @@ gsutil 4.46
 
 ## Required
 
-- Visual Code Studio  
-  https://code.visualstudio.com/download
-- Docker  
-  https://www.docker.com/
+-   Visual Code Studio  
+    https://code.visualstudio.com/download
+-   Docker  
+    https://www.docker.com/
 
 ## Other Link
 
-- Docker  
-  https://www.docker.com/
-- Terraform  
-  https://www.terraform.io/
-- Google Cloud SDK  
-  https://cloud.google.com/sdk/downloads
-- Google Cloud Platform Provider  
-  https://www.terraform.io/docs/providers/google/index.html
+-   Docker  
+    https://www.docker.com/
+-   Terraform  
+    https://www.terraform.io/
+-   Google Cloud SDK  
+    https://cloud.google.com/sdk/downloads
+-   Google Cloud Platform Provider  
+    https://www.terraform.io/docs/providers/google/index.html
 
 ## Note

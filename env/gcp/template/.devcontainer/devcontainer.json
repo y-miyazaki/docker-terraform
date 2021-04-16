@@ -1,5 +1,8 @@
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -8,7 +11,7 @@
     "esbenp.prettier-vscode",
     "ibm.output-colorizer",
     "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
+    "vscode-icons-team.vscode-icons"
   ],
   "build": {
     "args": {

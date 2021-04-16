@@ -52,29 +52,32 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 
 ```json
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
-  "extensions": [
-    "hashicorp.terraform",
-    "coenraads.bracket-pair-colorizer-2",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "ibm.output-colorizer",
-    "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
-  ],
-  "build": {
-    "args": {
-      "WORKDIR": "/workspace"
-    }
-  },
-  "runArgs": [
-    "-v",
-    "${env:HOME}/workspace/terraform-project:/workspace",
-    "--env-file=.env"
-  ],
-  "workspaceFolder": "/workspace",
-  "overrideCommand": false
+    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "hashicorp.terraform",
+        "coenraads.bracket-pair-colorizer-2",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ibm.output-colorizer",
+        "streetsidesoftware.code-spell-checker",
+        "vscode-icons-team.vscode-icons"
+    ],
+    "build": {
+        "args": {
+            "WORKDIR": "/workspace"
+        }
+    },
+    "runArgs": [
+        "-v",
+        "${env:HOME}/workspace/terraform-project:/workspace",
+        "--env-file=.env"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false
 }
 ```
 
@@ -291,20 +294,20 @@ aws-cli/2.0.9 Python/3.7.3 Linux/4.19.76-linuxkit botocore/2.0.0dev13
 
 ## Required
 
-- Visual Code Studio  
-  https://code.visualstudio.com/download
-- Docker  
-  https://www.docker.com/
+-   Visual Code Studio  
+    https://code.visualstudio.com/download
+-   Docker  
+    https://www.docker.com/
 
 ## Other Link
 
-- Docker  
-  https://www.docker.com/
-- Terraform  
-  https://www.terraform.io/
-- AWS CLI  
-  https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-- AWS Provider  
-  https://www.terraform.io/docs/providers/aws/index.html
+-   Docker  
+    https://www.docker.com/
+-   Terraform  
+    https://www.terraform.io/
+-   AWS CLI  
+    https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+-   AWS Provider  
+    https://www.terraform.io/docs/providers/aws/index.html
 
 ## Note

@@ -19,6 +19,9 @@ $ cp -rp env/azure/template env/azure/{your environment}
 $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "registry.hub.docker.com/ymiyazakixyz/terraform-azure:latest",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -52,29 +55,29 @@ $ cat env/azure/{your environment}/.devcontainer/devcontainer.json
 
 ```json
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-azure:latest",
-  "extensions": [
-    "hashicorp.terraform",
-    "coenraads.bracket-pair-colorizer-2",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "ibm.output-colorizer",
-    "streetsidesoftware.code-spell-checker",
-    "vscode-icons-team.vscode-icons",
-  ],
-  "build": {
-    "args": {
-      "WORKDIR": "/workspace"
-    }
-  },
-  "runArgs": [
-    "-v",
-    "${env:HOME}/workspace/terraform-project:/workspace",
-    "--env-file=.env"
-  ],
-  "workspaceFolder": "/workspace",
-  "overrideCommand": false
+    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-azure:latest",
+    "extensions": [
+        "hashicorp.terraform",
+        "coenraads.bracket-pair-colorizer-2",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "ibm.output-colorizer",
+        "streetsidesoftware.code-spell-checker",
+        "vscode-icons-team.vscode-icons"
+    ],
+    "build": {
+        "args": {
+            "WORKDIR": "/workspace"
+        }
+    },
+    "runArgs": [
+        "-v",
+        "${env:HOME}/workspace/terraform-project:/workspace",
+        "--env-file=.env"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false
 }
 ```
 
@@ -319,20 +322,20 @@ provider "azuread" {
 
 ## Required
 
-- Visual Code Studio  
-  https://code.visualstudio.com/download
-- Docker  
-  https://www.docker.com/
+-   Visual Code Studio  
+    https://code.visualstudio.com/download
+-   Docker  
+    https://www.docker.com/
 
 ## Other Link
 
-- Docker  
-  https://www.docker.com/
-- Terraform  
-  https://www.terraform.io/
-- Azure CLI  
-  https://docs.microsoft.com/ja-jp/cli/azure/?view=azure-cli-latest
-- Azure Provider  
-  https://www.terraform.io/docs/providers/azurerm/index.html
+-   Docker  
+    https://www.docker.com/
+-   Terraform  
+    https://www.terraform.io/
+-   Azure CLI  
+    https://docs.microsoft.com/ja-jp/cli/azure/?view=azure-cli-latest
+-   Azure Provider  
+    https://www.terraform.io/docs/providers/azurerm/index.html
 
 ## Note
