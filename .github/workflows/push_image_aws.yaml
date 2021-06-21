@@ -25,6 +25,6 @@ jobs:
       - name: Push to GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
-          context: docker/base/github/Dockerfile
+          context: ./docker/base/github/Dockerfile
           push: true
           tags: ${{ github.repository_owner }}/terraform-aws:latest
