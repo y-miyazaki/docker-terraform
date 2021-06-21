@@ -6,8 +6,8 @@ This environment uses [VS Code Remote Development](https://code.visualstudio.com
 
 ## Description
 
-[VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.  
-If you have a base Docker image, you can complete all work with a Docker container without building an environment locally.  
+[VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
+If you have a base Docker image, you can complete all work with a Docker container without building an environment locally.
 Since the base Docker Image has already been uploaded to [Docker Hub](https://hub.docker.com/) in this repository, it can be used immediately.
 
 ### Set devcontainer.json
@@ -18,9 +18,9 @@ Set devcontainer.json to use [VS Code Remote Development](https://code.visualstu
 $ cp -rp env/gcp/template env/gcp/{your environment}
 $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
+  "image": "ghcr.io/y-miyazaki/terraform-gcp:latest",
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
   },
   "extensions": [
     "hashicorp.terraform",
@@ -53,36 +53,36 @@ $ cat env/gcp/{your environment}/.devcontainer/devcontainer.json
 
 "##YOUR_WORKSPACE##" and ##YOUR_KEY_FILE_DIRECTORY## fix in devcontainer.json.
 
--   ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
--   ##YOUR_KEY_FILE_DIRECTORY## is your .key file directory for volume mount. If you want to absolute directory.
+- ##YOUR_WORKSPACE## is your local directory for volume mount. If you want to absolute directory, don't need to \${env:HOME} value.
+- ##YOUR_KEY_FILE_DIRECTORY## is your .key file directory for volume mount. If you want to absolute directory.
 
 ```json
 {
-    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-gcp:latest",
-    "extensions": [
-        "hashicorp.terraform",
-        "coenraads.bracket-pair-colorizer-2",
-        "eamodio.gitlens",
-        "editorconfig.editorconfig",
-        "esbenp.prettier-vscode",
-        "ibm.output-colorizer",
-        "streetsidesoftware.code-spell-checker",
-        "vscode-icons-team.vscode-icons"
-    ],
-    "build": {
-        "args": {
-            "WORKDIR": "/workspace"
-        }
-    },
-    "runArgs": [
-        "-v",
-        "${env:HOME}/workspace/terraform-project:/workspace",
-        "-v",
-        "${env:HOME}/workspace/docker-terraform/env/gcp/production/:/env/",
-        "--env-file=.env"
-    ],
-    "workspaceFolder": "/workspace",
-    "overrideCommand": false
+  "image": "ghcr.io/y-miyazaki/terraform-gcp:latest",
+  "extensions": [
+    "hashicorp.terraform",
+    "coenraads.bracket-pair-colorizer-2",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "ibm.output-colorizer",
+    "streetsidesoftware.code-spell-checker",
+    "vscode-icons-team.vscode-icons"
+  ],
+  "build": {
+    "args": {
+      "WORKDIR": "/workspace"
+    }
+  },
+  "runArgs": [
+    "-v",
+    "${env:HOME}/workspace/terraform-project:/workspace",
+    "-v",
+    "${env:HOME}/workspace/docker-terraform/env/gcp/production/:/env/",
+    "--env-file=.env"
+  ],
+  "workspaceFolder": "/workspace",
+  "overrideCommand": false
 }
 ```
 
@@ -97,10 +97,6 @@ $ cat env/gcp/{your environment}/.env
 #---------------------------------------------------------
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV={development|staging|production..etc}
-
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and gcp's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER={0|1}
 
 # terraform cache directory
 TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
@@ -169,7 +165,7 @@ BUCKET=xxxxxxxxxxxx
 ### fix env/{environment}/.key.
 
 You need to fix .key file.
-This file is Service Account Key json. Please check this following page.  
+This file is Service Account Key json. Please check this following page.
 https://cloud.google.com/iam/docs/creating-managing-service-account-keys
 
 Here is example.
@@ -177,10 +173,10 @@ Here is example.
 ```json
 $ cat env/template/.key
 {
-"type": "service_account",
+"type": "****************",
 "project_id": "[PROJECT-ID]",
 "private_key_id": "[KEY-ID]",
-"private_key": "-----BEGIN PRIVATE KEY-----\n[PRIVATE-KEY]\n-----END PRIVATE KEY-----\n",
+"private_key": "****************",
 "client_email": "[SERVICE-ACCOUNT-EMAIL]",
 "client_id": "[CLIENT-ID]",
 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -209,20 +205,20 @@ gsutil 4.46
 
 ## Required
 
--   Visual Code Studio  
-    https://code.visualstudio.com/download
--   Docker  
-    https://www.docker.com/
+- Visual Code Studio
+  https://code.visualstudio.com/download
+- Docker
+  https://www.docker.com/
 
 ## Other Link
 
--   Docker  
-    https://www.docker.com/
--   Terraform  
-    https://www.terraform.io/
--   Google Cloud SDK  
-    https://cloud.google.com/sdk/downloads
--   Google Cloud Platform Provider  
-    https://www.terraform.io/docs/providers/google/index.html
+- Docker
+  https://www.docker.com/
+- Terraform
+  https://www.terraform.io/
+- Google Cloud SDK
+  https://cloud.google.com/sdk/downloads
+- Google Cloud Platform Provider
+  https://www.terraform.io/docs/providers/google/index.html
 
 ## Note

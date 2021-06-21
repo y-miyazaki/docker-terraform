@@ -6,8 +6,8 @@ This environment uses [VS Code Remote Development](https://code.visualstudio.com
 
 ## Description
 
-[VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.  
-If you have a base Docker image, you can complete all work with a Docker container without building an environment locally.  
+[VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
+If you have a base Docker image, you can complete all work with a Docker container without building an environment locally.
 Since the base Docker Image has already been uploaded to [Docker Hub](https://hub.docker.com/) in this repository, it can be used immediately.
 
 ### Set devcontainer.json
@@ -18,9 +18,9 @@ Set devcontainer.json to use [VS Code Remote Development](https://code.visualstu
 $ cp -rp env/github/template env/github/{your environment}
 $ cat env/github/{your environment}/.devcontainer/devcontainer.json
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-github:latest",
+  "image": "ghcr.io/y-miyazaki/terraform-github:latest",
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
   },
   "extensions": [
     "hashicorp.terraform",
@@ -55,28 +55,28 @@ $ cat env/github/{your environment}/.devcontainer/devcontainer.json
 
 ```json
 {
-    "image": "registry.hub.docker.com/ymiyazakixyz/terraform-github:latest",
-    "extensions": [
-        "hashicorp.terraform",
-        "coenraads.bracket-pair-colorizer-2",
-        "eamodio.gitlens",
-        "esbenp.prettier-vscode",
-        "ibm.output-colorizer",
-        "streetsidesoftware.code-spell-checker",
-        "vscode-icons-team.vscode-icons"
-    ],
-    "build": {
-        "args": {
-            "WORKDIR": "/workspace"
-        }
-    },
-    "runArgs": [
-        "-v",
-        "${env:HOME}/workspace/terraform-project:/workspace",
-        "--env-file=.env"
-    ],
-    "workspaceFolder": "/workspace",
-    "overrideCommand": false
+  "image": "ghcr.io/y-miyazaki/terraform-github:latest",
+  "extensions": [
+    "hashicorp.terraform",
+    "coenraads.bracket-pair-colorizer-2",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "ibm.output-colorizer",
+    "streetsidesoftware.code-spell-checker",
+    "vscode-icons-team.vscode-icons"
+  ],
+  "build": {
+    "args": {
+      "WORKDIR": "/workspace"
+    }
+  },
+  "runArgs": [
+    "-v",
+    "${env:HOME}/workspace/terraform-project:/workspace",
+    "--env-file=.env"
+  ],
+  "workspaceFolder": "/workspace",
+  "overrideCommand": false
 }
 ```
 
@@ -122,10 +122,6 @@ $ cat env/github/{your environment}/.env
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV=production
 
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and github's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER=1
-
 #---------------------------------------------------------
 # see
 # https://www.terraform.io/docs/configuration/resources.html
@@ -149,18 +145,18 @@ Terraform v0.12.25
 
 ## Required
 
--   Visual Code Studio  
-    https://code.visualstudio.com/download
--   Docker  
-    https://www.docker.com/
+- Visual Code Studio
+  https://code.visualstudio.com/download
+- Docker
+  https://www.docker.com/
 
 ## Other Link
 
--   Docker  
-    https://www.docker.com/
--   Terraform  
-    https://www.terraform.io/
--   GitHub Provider  
-    https://www.terraform.io/docs/providers/github/index.html
+- Docker
+  https://www.docker.com/
+- Terraform
+  https://www.terraform.io/
+- GitHub Provider
+  https://www.terraform.io/docs/providers/github/index.html
 
 ## Note

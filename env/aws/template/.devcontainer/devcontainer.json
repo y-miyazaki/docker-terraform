@@ -1,7 +1,7 @@
 {
-  "image": "registry.hub.docker.com/ymiyazakixyz/terraform-aws:latest",
+  "image": "ghcr.io/y-miyazaki/terraform-aws:latest",
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
   },
   "extensions": [
     "hashicorp.terraform",
