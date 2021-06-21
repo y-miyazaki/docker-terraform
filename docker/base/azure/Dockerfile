@@ -24,7 +24,7 @@ RUN apk update && \
     pip3 install pre-commit && \
     # Install tfenv
     git clone https://github.com/kamatama41/tfenv.git ~/.tfenv && \
-    echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bash_profile && \
+    echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc && \
     source ~/.bashrc && \
     # Install tflint
     curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
