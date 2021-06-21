@@ -21,5 +21,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
           registry: ghcr.io
+          file: docker/base/aws/Dockerfile
           repository: ${{ github.repository_owner }}/terraform-aws
           tag_with_ref: true
