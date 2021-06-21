@@ -16,12 +16,15 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Login to GHCR
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}      # secretで作成したものを指定
       - name: Push to GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
-          registry: ghcr.io
-          file: docker/base/github/Dockerfile
-          repository: ${{ github.repository_owner }}/terraform-github
-          tag_with_ref: true
+          context: docker/base/github/Dockerfile
+          push: true
+          tags: ${{ github.repository_owner }}/terraform-github:latest
