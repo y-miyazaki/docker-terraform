@@ -3,8 +3,6 @@ name: Publish Docker image for Terrform github
 on:
   release:
     types: [published]
-    paths:
-      - "docker/base/github/Dockerfile"
   push:
     branches:
       - "master"
