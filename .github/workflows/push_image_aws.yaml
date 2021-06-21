@@ -1,6 +1,10 @@
 # https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 name: Publish Docker image for Terrform AWS
 on:
+  release:
+    types: [published]
+    paths:
+      - "docker/base/aws/Dockerfile"
   push:
     branches:
       - "master"
