@@ -27,8 +27,7 @@ RUN apk update && \
     pip3 install pre-commit --ignore-installed distlib && \
     # Install tfenv
     git clone https://github.com/kamatama41/tfenv.git ~/.tfenv && \
-    echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc && \
-    source ~/.bashrc && \
+    ln -s ~/.tfenv/bin/* /usr/local/bin && \
     # Install tflint
     curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # Install tfsec

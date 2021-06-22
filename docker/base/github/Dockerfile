@@ -22,10 +22,10 @@ RUN apk update && \
     apk add --no-cache make bash openssh git tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
     # fix sudo: setrlimit(RLIMIT_CORE): Operation not permitted
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
+    echo "if [ -f ~/.bashrc ]; then  . ~/.bashrc;  fi" >> ~/.bash_profile && \
     # Install tfenv
     git clone https://github.com/kamatama41/tfenv.git ~/.tfenv && \
-    echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc && \
-    source ~/.bashrc && \
+    ln -s ~/.tfenv/bin/* /usr/local/bin && \
     # Install tflint
     curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # Install tfsec
