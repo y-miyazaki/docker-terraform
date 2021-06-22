@@ -24,7 +24,7 @@ WORKDIR  ${WORKDIR}
 # Install dependent packages
 #--------------------------------------------------------------
 RUN apk update && \
-    apk add --no-cache make bash git tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
+    apk add --no-cache make bash openssh git tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
     # Install pre-commit
     pip3 install pre-commit && \
     # Install tfenv

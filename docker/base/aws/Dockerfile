@@ -20,7 +20,7 @@ WORKDIR  ${WORKDIR}
 # Install dependent packages
 #--------------------------------------------------------------
 RUN apk update && \
-    apk add --no-cache make bash git tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
+    apk add --no-cache make bash openssh git tar curl zip openssl jq sudo python3 python3-dev py3-pip && \
     # fix sudo: setrlimit(RLIMIT_CORE): Operation not permitted
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
     # Install pre-commit
