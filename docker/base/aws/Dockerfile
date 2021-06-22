@@ -1,8 +1,6 @@
 #--------------------------------------------------------------
 # base build image
 #--------------------------------------------------------------
-# ARG TERRAFORM_VERSION=latest
-# FROM hashicorp/terraform:${TERRAFORM_VERSION}
 FROM alpine:latest
 
 #--------------------------------------------------------------

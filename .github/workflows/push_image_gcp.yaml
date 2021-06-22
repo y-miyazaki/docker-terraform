@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - "master"
+    paths:
+      - "docker/base/gcp/Dockerfile"
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
