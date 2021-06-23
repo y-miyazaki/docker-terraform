@@ -26,7 +26,7 @@ jobs:
         with:
           file: ./docker/base/github/Dockerfile
       - name: Push image to ghcr.io.
-        uses: ./.github/actions/push-ghcr.yaml
+        uses: ./.github/actions/push-ghcr
         with:
           file: ./docker/base/github/Dockerfile
           image: test
