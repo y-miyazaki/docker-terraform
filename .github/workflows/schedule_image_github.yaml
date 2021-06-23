@@ -1,0 +1,18 @@
+# https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+name: Schedule check docker security for Github
+on:
+  schedule:
+    - cron:  '0 0 */7 * *'
+jobs:
+  push_to_registry:
+    env:
+      file: ./docker/base/github/Dockerfile
+    name: Check docker security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Check docker security
+        uses: ./.github/actions/check-docker-security
+        with:
+          file: ${{ env.file }}
