@@ -23,11 +23,16 @@ jobs:
         uses: ./.github/actions/check-docker-security
         with:
           file: ${{ env.file }}
-      - name: Push image to ghcr.io.
-        uses: ./.github/actions/push-ghcr
+      - name: Login to GHCR
+        uses: docker/login-action@v1
         with:
-          file: ${{ env.file }}
-          image: ${{ env.image }}
-          tag: ${{ env.tag }}
+          registry: ghcr.io
           username: ${{ env.username }}
           password: ${{ env.password }}
+      - name: Push to GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          file: ${{ env.file }}
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/${{ env.image }}:${{ env.tag }}
