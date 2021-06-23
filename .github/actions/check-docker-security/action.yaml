@@ -31,7 +31,7 @@ runs:
     - name: Build Docker Image
       shell: bash
       run: |
-        export DOCKER_CONTENT_TRUST=1; docker build -f ${{ inputs.file }} -t tmp:${{github.sha}} .
+        docker build -f ${{ inputs.file }} -t tmp:${{github.sha}} .
     - name: Check trivy
       shell: bash
       run: |
