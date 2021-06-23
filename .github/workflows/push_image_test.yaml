@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - "develop"
-    paths:
-      - "docker/base/test/Dockerfile"
 jobs:
   push_to_registry:
     env:
