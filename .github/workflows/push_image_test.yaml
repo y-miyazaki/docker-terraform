@@ -1,0 +1,35 @@
+# https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+name: Publish Docker image for Terrform AWS
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - "develop"
+    paths:
+      - "docker/base/test/Dockerfile"
+jobs:
+  push_to_registry:
+    env:
+      file: ./docker/base/github/Dockerfile
+      image: test
+      tag: latest
+      username: ${{ github.repository_owner }}
+      password: ${{ secrets.CR_PAT }}
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Check docker security
+        uses: ./.github/actions/check-docker-security
+        with:
+          file: ./docker/base/github/Dockerfile
+      - name: Push image to ghcr.io.
+        uses: ./.github/actions/push-ghcr.yaml
+        with:
+          file: ./docker/base/github/Dockerfile
+          image: test
+          tag: latest
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
