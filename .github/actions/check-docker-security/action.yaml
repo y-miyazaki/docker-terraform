@@ -41,7 +41,3 @@ runs:
       run: |
         dockle tmp:${{github.sha}} | tee -a dockle.out;
         test $(cat dockle.out | grep -e FATAL -e WARN | wc -l) -eq 0
-    - name: Remove image
-      shell: bash
-      run: |
-        docker images | grep 'tmp' |  xargs docker rmi
