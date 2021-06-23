@@ -9,7 +9,7 @@ on:
 jobs:
   push_to_registry:
     env:
-      file: ./docker/base/github/Dockerfile
+      file: ./docker/base/test/Dockerfile
       image: test
       tag: latest
       username: ${{ github.repository_owner }}
