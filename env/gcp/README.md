@@ -4,6 +4,13 @@
 
 This environment uses [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) for [Google Cloud Platform](https://console.cloud.google.com/).
 
+## Required
+
+- Visual Code Studio  
+  https://code.visualstudio.com/download
+- Docker  
+  https://www.docker.com/
+
 ## Description
 
 [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
@@ -134,10 +141,6 @@ $ cat env/aws/{your environment}/.env
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV=production
 
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and gcp's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER=1
-
 #---------------------------------------------------------
 # Google Cloud Platform Provider
 # https://www.terraform.io/docs/providers/google/index.html
@@ -186,39 +189,13 @@ $ cat env/template/.key
 }
 ```
 
-### terraform version(latest)
-
-```bash
-bash-5.0# terraform -v
-Terraform v0.12.25
-```
-
-### gcloud version and gcloud config list
-
-```
-bash-5.0# gcloud version
-Google Cloud SDK 273.0.0
-bq 2.0.50
-core 2019.12.06
-gsutil 4.46
-```
-
-## Required
-
-- Visual Code Studio
-  https://code.visualstudio.com/download
-- Docker
-  https://www.docker.com/
-
 ## Other Link
 
-- Docker
+- Docker  
   https://www.docker.com/
-- Terraform
+- Terraform  
   https://www.terraform.io/
-- Google Cloud SDK
+- Google Cloud SDK  
   https://cloud.google.com/sdk/downloads
-- Google Cloud Platform Provider
+- Google Cloud Platform Provider  
   https://www.terraform.io/docs/providers/google/index.html
-
-## Note
