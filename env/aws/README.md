@@ -4,6 +4,13 @@
 
 This environment uses [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) and install Terraform/AWS CLI
 
+## Required
+
+- Visual Code Studio  
+  https://code.visualstudio.com/download
+- Docker  
+  https://www.docker.com/
+
 ## Description
 
 [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
@@ -19,6 +26,9 @@ $ cp -rp env/aws/template env/aws/{your environment}
 $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 {
   "image": "ghcr.io/y-miyazaki/terraform-aws:latest",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
+  },
   "extensions": [
     "hashicorp.terraform",
     "coenraads.bracket-pair-colorizer-2",
@@ -129,10 +139,6 @@ $ cat env/aws/{your environment}/.env
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV=production
 
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and aws's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER=1
-
 # terraform cache directory
 TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
 #---------------------------------------------------------
@@ -159,151 +165,13 @@ AWS_REGION=ap-northeast-1
 BUCKET=terraform-state
 ```
 
-## awstf plan(terraform plan)
-
-if you set "IS_GENERATE_PROVIDER=1", this following command generates main_init.tf under current directory and action terraform plan.
-main_init.tf is created by tf command.
-
-```bash
-$ awstf plan
-Initializing modules...
-
-Initializing the backend...
-
-Initializing provider plugins...
-
-・・・・・・・・・・・・・・・・・・・・・・・・
-
-------------------------------------------------------------------------
-
-No changes. Infrastructure is up-to-date.
-
-This means that Terraform did not detect any differences between your
-configuration and real physical resources that exist. As a result, no
-actions need to be performed.
-
-$ cat main_init.tf
-#--------------------------------------------------------------
-# main_init.tf must be not touch! because main_init.tf is auto generate file.
-# If you want to fix it, you should be fix shell/aws/files/main.template.tf.
-#--------------------------------------------------------------
-
-#--------------------------------------------------------------
-# terraform state
-#--------------------------------------------------------------
-terraform {
-  required_version = ">= 0.12"
-  backend "s3" {
-    bucket  = "xxxxxx-terraform-state-xxxxxxxxx"
-    key     = "terraform.tfstate"
-    profile = "default"    # fix for environment
-    region  = "ap-northeast-1" # fix for environment
-  }
-}
-
-#--------------------------------------------------------------
-# Provider Setting
-# access key and secret key should not use.
-#--------------------------------------------------------------
-provider "aws" {
-  profile = "default"    # fix for environment
-  region  = "ap-northeast-1" # fix for environment
-}
-
-#--------------------------------------------------------------
-# my account id/region
-#--------------------------------------------------------------
-data "aws_caller_identity" "self" {}
-data "aws_region" "self" {}
-```
-
-## awstf apply(terraform apply)
-
-if you set "IS_GENERATE_PROVIDER=1", this following command generates main_init.tf under current directory and action terraform apply.
-main_init.tf is created by tf command.
-
-```bash
-$ awstf apply
-Initializing modules...
-
-Initializing the backend...
-
-Initializing provider plugins...
-
-・・・・・・・・・・・・・・・・・・・・・・・・
-
-------------------------------------------------------------------------
-
-No changes. Infrastructure is up-to-date.
-
-This means that Terraform did not detect any differences between your
-configuration and real physical resources that exist. As a result, no
-actions need to be performed.
-$ cat main_init.tf
-#--------------------------------------------------------------
-# main_init.tf must be not touch! because main_init.tf is auto generate file.
-# If you want to fix it, you should be fix shell/aws/files/main.template.tf.
-#--------------------------------------------------------------
-
-#--------------------------------------------------------------
-# terraform state
-#--------------------------------------------------------------
-terraform {
-  required_version = ">= 0.12"
-  backend "s3" {
-    bucket  = "xxxxxx-terraform-state-xxxxxxxxx"
-    key     = "terraform.tfstate"
-    profile = "default"    # fix for environment
-    region  = "ap-northeast-1" # fix for environment
-  }
-}
-
-#--------------------------------------------------------------
-# Provider Setting
-# access key and secret key should not use.
-#--------------------------------------------------------------
-provider "aws" {
-  profile = "default"    # fix for environment
-  region  = "ap-northeast-1" # fix for environment
-}
-
-#--------------------------------------------------------------
-# my account id/region
-#--------------------------------------------------------------
-data "aws_caller_identity" "self" {}
-data "aws_region" "self" {}
-```
-
-### terraform version(latest)
-
-```bash
-bash-5.0# terraform -v
-Terraform v0.12.25
-```
-
-### aws version
-
-```
-bash-5.0# aws --v
-aws-cli/2.0.9 Python/3.7.3 Linux/4.19.76-linuxkit botocore/2.0.0dev13
-```
-
-## Required
-
-- Visual Code Studio
-  https://code.visualstudio.com/download
-- Docker
-  https://www.docker.com/
-
 ## Other Link
 
-- Docker
+- Docker  
   https://www.docker.com/
-- Terraform
+- Terraform  
   https://www.terraform.io/
-- AWS CLI
+- AWS CLI  
   https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-- AWS Provider
+- AWS Provider  
   https://www.terraform.io/docs/providers/aws/index.html
-
-## Note

@@ -4,6 +4,13 @@
 
 This environment uses [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) and install Terraform/Azure CLI
 
+## Required
+
+- Visual Code Studio  
+  https://code.visualstudio.com/download
+- Docker  
+  https://www.docker.com/
+
 ## Description
 
 [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
@@ -143,10 +150,6 @@ $ cat env/aws/{your environment}/.env
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV=production
 
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and azure's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER=1
-
 # terraform cache directory
 TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
 #---------------------------------------------------------
@@ -187,151 +190,13 @@ CONTAINER_NAME=tfstate
 ARM_ACCESS_KEY=xxxxxxxxxxxxx/xxxxxxxxx/xxxxxxxxxxxxxxxxxx==
 ```
 
-### terraform version(latest)
-
-```bash
-bash-5.0# terraform -v
-Terraform v0.12.25
-```
-
-### az versions
-
-```
-bash-5.0# az --version
-azure-cli                         2.0.76
-
-command-modules-nspkg              2.0.3
-core                              2.0.76
-nspkg                              3.0.4
-telemetry                          1.0.4
-
-Python location '/usr/bin/python'
-Extensions directory '/root/.azure/cliextensions'
-
-Python (Linux) 2.7.16 (default, May  6 2019, 19:28:45)
-[GCC 8.3.0]
-
-Legal docs and information: aka.ms/AzureCliLegal
-
-
-Your CLI is up-to-date.
-```
-
-## aztf plan(terraform plan)
-
-if you set "IS_GENERATE_PROVIDER=1", this following command generates main_init.tf under current directory and action terraform plan.
-main_init.tf is created by aztf command.
-
-```bash
-$ aztf plan
-Initializing modules...
-
-Initializing the backend...
-
-Initializing provider plugins...
-
-・・・・・・・・・・・・・・・・・・・・・・・・
-
-------------------------------------------------------------------------
-
-No changes. Infrastructure is up-to-date.
-
-This means that Terraform did not detect any differences between your
-configuration and real physical resources that exist. As a result, no
-actions need to be performed.
-
-$ cat main_init.tf
-#--------------------------------------------------------------
-# main_init.tf must be not touch! because main_init.tf is auto generate file.
-#--------------------------------------------------------------
-
-#--------------------------------------------------------------
-# terraform state
-#--------------------------------------------------------------
-terraform {
-  required_version = ">= 0.12"
-  backend "azurerm" {
-    storage_account_name = "xxxxxxxxxxxxxxxxx"
-    container_name = "tfstate"
-    key = "terraform-tfstate"
-  }
-}
-
-#--------------------------------------------------------------
-# Provider Setting
-#--------------------------------------------------------------
-provider "azurerm" {
-}
-provider "azuread" {
- version = ">=0.3.0"
-}
-```
-
-## aztf apply(terraform apply)
-
-if you set "IS_GENERATE_PROVIDER=1", this following command generates main_init.tf under current directory and action terraform apply.
-main_init.tf is created by aztf command.
-
-```bash
-$ aztf apply
-Initializing modules...
-
-Initializing the backend...
-
-Initializing provider plugins...
-
-・・・・・・・・・・・・・・・・・・・・・・・・
-
-------------------------------------------------------------------------
-
-No changes. Infrastructure is up-to-date.
-
-This means that Terraform did not detect any differences between your
-configuration and real physical resources that exist. As a result, no
-actions need to be performed.
-$ cat main_init.tf
-#--------------------------------------------------------------
-# main_init.tf must be not touch! because main_init.tf is auto generate file.
-#--------------------------------------------------------------
-
-#--------------------------------------------------------------
-# terraform state
-#--------------------------------------------------------------
-terraform {
-  required_version = ">= 0.12"
-  backend "azurerm" {
-    storage_account_name = "xxxxxxxxxxxxxxxxx"
-    container_name = "tfstate"
-    key = "terraform-tfstate"
-  }
-}
-
-#--------------------------------------------------------------
-# Provider Setting
-#--------------------------------------------------------------
-provider "azurerm" {
-}
-provider "azuread" {
- version = ">=0.3.0"
-}
-```
-
-## Required
-
-- Visual Code Studio
-  https://code.visualstudio.com/download
-- Docker
-  https://www.docker.com/
-
 ## Other Link
 
-- Docker
+- Docker  
   https://www.docker.com/
-- Terraform
+- Terraform  
   https://www.terraform.io/
-- Azure CLI
+- Azure CLI  
   https://docs.microsoft.com/ja-jp/cli/azure/?view=azure-cli-latest
-- Azure Provider
+- Azure Provider  
   https://www.terraform.io/docs/providers/azurerm/index.html
-
-## Note

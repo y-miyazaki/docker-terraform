@@ -4,6 +4,13 @@
 
 This environment uses [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) and install Terraform for GitHub Provider.
 
+## Required
+
+- Visual Code Studio  
+  https://code.visualstudio.com/download
+- Docker  
+  https://www.docker.com/
+
 ## Description
 
 [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) can use VS Code and Docker technology to create a Docker container from VS Code and enable work in the Docker container with VS Code.
@@ -92,10 +99,6 @@ $ cat env/github/{your environment}/.env
 # ENV uses terraform.${ENV}.tfvars file etc...
 ENV={development|staging|production..etc}
 
-# IS_GENERATE_PROVIDER generates main_init.tf for terraform and provider and github's data resources.
-# When IS_GENERATE_PROVIDER is equal to 1, created main_init.tf under workspace directory.
-IS_GENERATE_PROVIDER={0|1}
-
 # terraform cache directory
 TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
 #---------------------------------------------------------
@@ -136,27 +139,11 @@ GITHUB_ORGANIZATION=
 GITHUB_INDIVIDUAL=true
 ```
 
-### terraform version(latest)
-
-```bash
-bash-5.0# terraform -v
-Terraform v0.12.25
-```
-
-## Required
-
-- Visual Code Studio
-  https://code.visualstudio.com/download
-- Docker
-  https://www.docker.com/
-
 ## Other Link
 
-- Docker
+- Docker  
   https://www.docker.com/
-- Terraform
+- Terraform  
   https://www.terraform.io/
-- GitHub Provider
+- GitHub Provider  
   https://www.terraform.io/docs/providers/github/index.html
-
-## Note
