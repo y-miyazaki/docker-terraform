@@ -122,13 +122,6 @@ ZONE={gcp main region zone}
 
 # GOOGLE_CLOUD_KEYFILE_JSON uses gcloud auth command and init provider.
 GOOGLE_CLOUD_KEYFILE_JSON=/env/.key
-
-#---------------------------------------------------------
-# Store Terraform state in GCS
-# https://www.terraform.io/docs/backends/types/gcs.html
-#---------------------------------------------------------
-# terraform state gcs bucket name.
-BUCKET={gcs terraform state bucket}
 ```
 
 Here is example.
@@ -156,13 +149,6 @@ ZONE=us-west-1
 
 # GOOGLE_CLOUD_KEYFILE_JSON uses gcloud auth command and init provider.
 GOOGLE_CLOUD_KEYFILE_JSON=/env/.key
-
-#---------------------------------------------------------
-# Store Terraform state in GCS
-# https://www.terraform.io/docs/backends/types/gcs.html
-#---------------------------------------------------------
-# terraform state gcs bucket name.
-BUCKET=xxxxxxxxxxxx
 ```
 
 ### fix env/{environment}/.key.

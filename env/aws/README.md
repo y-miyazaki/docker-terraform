@@ -120,13 +120,6 @@ AWS_DEFAULT_REGION={aws default region}
 
 # AWS_REGION uses for default profile.
 AWS_REGION={aws default region}
-
-#---------------------------------------------------------
-# Store Terraform state in S3
-# https://www.terraform.io/docs/backends/types/s3.html
-#---------------------------------------------------------
-# terraform state s3 bucket name.
-BUCKET={s3 terraform state bucket}
 ```
 
 Here is example.
@@ -156,13 +149,6 @@ AWS_DEFAULT_REGION=ap-northeast-1
 
 # AWS_REGION uses for default profile.
 AWS_REGION=ap-northeast-1
-
-#---------------------------------------------------------
-# Store Terraform state in S3
-# https://www.terraform.io/docs/backends/types/s3.html
-#---------------------------------------------------------
-# terraform state s3 bucket name.
-BUCKET=terraform-state
 ```
 
 ## Other Link
