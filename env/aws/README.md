@@ -104,7 +104,7 @@ $ cat env/aws/{your environment}/.env
 ENV={development|staging|production..etc}
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/workspace/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # aws setting
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
@@ -133,7 +133,7 @@ $ cat env/aws/{your environment}/.env
 ENV=production
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/workspace/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # aws setting
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html

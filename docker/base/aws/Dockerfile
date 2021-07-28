@@ -1,13 +1,12 @@
 #--------------------------------------------------------------
 # base build image
 #--------------------------------------------------------------
-FROM alpine:3.14.0
+FROM alpine:latest
 
 #--------------------------------------------------------------
 # ARG
 #--------------------------------------------------------------
 ARG WORKDIR=/workspace
-ARG CLOUD_COMMANDS_VERSION=v0.7.1
 ARG GLIBC_VER=2.31-r0
 
 #--------------------------------------------------------------
@@ -20,9 +19,9 @@ WORKDIR  ${WORKDIR}
 # Install dependent packages
 #--------------------------------------------------------------
 RUN apk update && \
-    apk add --no-cache make bash openssh git tar curl zip openssl jq python3 python3-dev py3-pip && \
+    apk add --no-cache make bash openssh openssl git tar curl zip jq groff python3 python3-dev py3-pip && \
     # setting commands
-    curl -sSfL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s -- ${CLOUD_COMMANDS_VERSION} && \
+    curl -sSL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s && \
     # Install pre-commit
     pip3 install pre-commit --ignore-installed distlib && \
     # Install gitleaks

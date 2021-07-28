@@ -101,7 +101,7 @@ $ cat env/azure/{your environment}/.env
 ENV={development|staging|production..etc}
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/workspace/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # Install and configure Terraform to provision Azure resources
 # https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
@@ -151,7 +151,7 @@ $ cat env/aws/{your environment}/.env
 ENV=production
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/workspace/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # Install and configure Terraform to provision Azure resources
 # https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure

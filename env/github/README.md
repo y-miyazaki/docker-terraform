@@ -100,7 +100,7 @@ $ cat env/github/{your environment}/.env
 ENV={development|staging|production..etc}
 
 # terraform cache directory
-TF_PLUGIN_CACHE_DIR=/root/.terraform.d/plugin-cache
+TF_PLUGIN_CACHE_DIR=/workspace/.terraform.d/plugin-cache
 #---------------------------------------------------------
 # see
 # https://www.terraform.io/docs/configuration/resources.html
