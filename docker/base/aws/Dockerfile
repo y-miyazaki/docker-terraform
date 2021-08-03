@@ -26,7 +26,7 @@ RUN apk update && \
     # Install pre-commit
     pip3 install pre-commit --ignore-installed distlib && \
     # Install gitleaks
-    curl -sLO https://github.com/zricethezav/gitleaks/releases/download/$(curl -s https://api.github.com/repos/zricethezav/gitleaks/releases/latest | grep tag_name | cut -d '"' -f 4)/gitleaks-linux-amd64 && \
+    curl -sLO https://github.com/zricethezav/gitleaks/releases/latest/download/gitleaks-linux-amd64 && \
     chmod +x gitleaks-linux-amd64 && \
     mv gitleaks-linux-amd64 /usr/local/bin/gitleaks && \
     # Install tfenv
@@ -35,7 +35,7 @@ RUN apk update && \
     # Install tflint
     curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # Install tfsec
-    curl -sLO https://github.com/tfsec/tfsec/releases/download/$(curl -s https://api.github.com/repos/tfsec/tfsec/releases/latest | grep tag_name | cut -d '"' -f 4)/tfsec-linux-amd64 && \
+    curl -sLO https://github.com/tfsec/tfsec/releases/latest/download/tfsec-linux-amd64 && \
     chmod +x tfsec-linux-amd64 && \
     mv tfsec-linux-amd64 /usr/local/bin/tfsec && \
     # Install terraform-docs
