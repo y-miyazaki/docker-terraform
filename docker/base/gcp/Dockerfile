@@ -7,6 +7,7 @@ FROM alpine:latest
 # ARG
 #--------------------------------------------------------------
 ARG WORKDIR=/workspace
+ARG TERRAFORM_DOCS=0.14.1
 
 #--------------------------------------------------------------
 # ENV
@@ -41,6 +42,13 @@ RUN apk update && \
     curl -sLO https://github.com/tfsec/tfsec/releases/download/$(curl -s https://api.github.com/repos/tfsec/tfsec/releases/latest | grep tag_name | cut -d '"' -f 4)/tfsec-linux-amd64 && \
     chmod +x tfsec-linux-amd64 && \
     mv tfsec-linux-amd64 /usr/local/bin/tfsec && \
+    # Install terraform-docs
+    curl -OL https://github.com/terraform-docs/terraform-docs/releases/download/v${TERRAFORM_DOCS}/terraform-docs-v${TERRAFORM_DOCS}-linux-amd64.tar.gz && \
+    mkdir terraform-docs && \
+    tar -zxvf terraform-docs-v${TERRAFORM_DOCS}-linux-amd64.tar.gz -C ./terraform-docs && \
+    mv terraform-docs/terraform-docs /usr/local/bin/terraform-docs && \
+    chmod +x /usr/local/bin/terraform-docs && \
+    rm -rf terraform-docs* && \
     # Install Google Cloud SDK
     curl https://sdk.cloud.google.com | bash && \
     $SHELL && \
