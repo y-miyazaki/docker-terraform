@@ -1,7 +1,7 @@
 #--------------------------------------------------------------
 # base build image
 #--------------------------------------------------------------
-FROM mcr.microsoft.com/vscode/devcontainers/debian
+FROM mcr.microsoft.com/vscode/devcontainers/go:1.17
 
 #--------------------------------------------------------------
 # ARG
