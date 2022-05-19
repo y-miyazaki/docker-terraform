@@ -11,7 +11,7 @@ on:
 jobs:
   push_to_registry:
     env:
-      file: ./docker/debian/Dockerfile
+      file: ./docker/base/debian/Dockerfile
       image: debian
       tag: latest
       username: ${{ github.repository_owner }}
