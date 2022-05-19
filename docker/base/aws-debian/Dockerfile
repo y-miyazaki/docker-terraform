@@ -25,6 +25,10 @@ RUN apt update && \
     apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* && \
+    # Install docker
+    curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh ./get-docker.sh && \
+    rm -f get-docker.sh && \
     # setting commands
     curl -sSL https://raw.githubusercontent.com/y-miyazaki/cloud-commands/master/install.sh | sh -s && \
     # Install pre-commit

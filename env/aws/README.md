@@ -25,7 +25,7 @@ Set devcontainer.json to use [VS Code Remote Development](https://code.visualstu
 $ cp -rp env/aws/template env/aws/{your environment}
 $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 {
-  "image": "ghcr.io/y-miyazaki/terraform-aws:latest",
+  "image": "ghcr.io/y-miyazaki/terraform-aws-debian:latest",
   "settings": {
     "terminal.integrated.defaultProfile.linux": "/bin/bash"
   },
@@ -62,7 +62,7 @@ $ cat env/aws/{your environment}/.devcontainer/devcontainer.json
 
 ```json
 {
-  "image": "ghcr.io/y-miyazaki/terraform-aws:latest",
+  "image": "ghcr.io/y-miyazaki/terraform-aws-debian:latest",
   "settings": {
     "terminal.integrated.defaultProfile.linux": "/bin/bash"
   },
