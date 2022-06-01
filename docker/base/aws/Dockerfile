@@ -8,7 +8,7 @@ FROM alpine:latest
 #--------------------------------------------------------------
 ARG WORKDIR=/workspace
 ARG GLIBC_VER=2.31-r0
-ARG TERRAFORM_DOCS=0.14.1
+ARG TERRAFORM_DOCS=0.16.0
 
 #--------------------------------------------------------------
 # workdir
@@ -35,7 +35,7 @@ RUN apk update && \
     # Install tflint
     curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     # Install tfsec
-    curl -sLO https://github.com/tfsec/tfsec/releases/latest/download/tfsec-linux-amd64 && \
+    curl -sLO https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 && \
     chmod +x tfsec-linux-amd64 && \
     mv tfsec-linux-amd64 /usr/local/bin/tfsec && \
     # Install terraform-docs
